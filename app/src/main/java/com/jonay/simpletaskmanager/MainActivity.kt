@@ -11,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.jonay.simpletaskmanager.navigation.AppNavigationScreens
+import com.jonay.simpletaskmanager.navigation.AppNavigationScreens.*
+import com.jonay.simpletaskmanager.navigation.Navigation
 import com.jonay.simpletaskmanager.ui.theme.SimpleTaskManagerTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +22,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SimpleTaskManagerTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                Navigation(ListScreen.route)
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SimpleTaskManagerTheme {
-        Greeting("Android")
     }
 }

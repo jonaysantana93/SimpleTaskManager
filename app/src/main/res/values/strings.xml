@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SimpleTaskManager</string>
+    <string name="list_screen_name">Mis tareas</string>
 </resources>

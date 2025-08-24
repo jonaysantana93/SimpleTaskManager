@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.daggerHilt)
+    alias(libs.plugins.kotlin.ksp)
 }
 
 android {
@@ -28,11 +30,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     buildFeatures {
         compose = true
@@ -40,6 +39,10 @@ android {
 }
 
 dependencies {
+
+    //region Modules
+    implementation(project(":common"))
+    //endregion Modules
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -53,6 +56,16 @@ dependencies {
     //NAVIGATION
     implementation(libs.androidx.navigation.compose)
 
+    //region DAGGER HILT
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+    ksp(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.common)
+    implementation(libs.androidx.hilt.navigation.compose)
+    //endregion DAGGER HILT
+
+
+    //region TEST
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -60,4 +73,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //region TEST-HILT
+    testImplementation(libs.hilt.android.testing)
+    //endregion TEST-HILT
+    //endregion TEST
 }

@@ -15,7 +15,9 @@ import com.jonay.simpletaskmanager.navigation.AppNavigationScreens
 import com.jonay.simpletaskmanager.navigation.AppNavigationScreens.*
 import com.jonay.simpletaskmanager.navigation.Navigation
 import com.jonay.simpletaskmanager.ui.theme.SimpleTaskManagerTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

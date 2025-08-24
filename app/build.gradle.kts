@@ -41,7 +41,6 @@ android {
 dependencies {
 
     //region Modules
-    implementation(project(":common"))
     //endregion Modules
 
     implementation(libs.androidx.core.ktx)

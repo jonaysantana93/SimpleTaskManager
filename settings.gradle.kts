@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "SimpleTaskManager"
 include(":app")
-include(":common")
+include(":app:database")
+include(":app:common")
